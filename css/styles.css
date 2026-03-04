@@ -1,0 +1,118 @@
+/* The Alley Kats — base styles */
+
+:root {
+  --bg: #0f0f0f;
+  --surface: #1a1a1a;
+  --text: #f0f0f0;
+  --accent: #c9a227;
+  --muted: #888;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background: rgba(15, 15, 15, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 10;
+}
+
+.nav {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: var(--accent);
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.hero {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+}
+
+.hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  letter-spacing: 0.02em;
+}
+
+.tagline {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--muted);
+}
+
+.section {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.section p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
