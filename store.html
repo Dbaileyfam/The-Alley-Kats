@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store — The Alley Kats</title>
+  <base href="https://dbaileyfam.github.io/The-Alley-Kats/">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="logo"><img src="images/logo.png" alt="The Alley Kats" class="logo-img"></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Upcoming Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="store.html" class="current">Store</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <h1>Store</h1>
+      <p class="tagline">Official merch. Rep the band.</p>
+    </section>
+
+    <section class="section store-section">
+      <div class="store-grid">
+        <article class="store-card">
+          <div class="store-card-image">
+            <div class="store-placeholder">Product image</div>
+          </div>
+          <div class="store-card-body">
+            <h3>T‑Shirt</h3>
+            <p class="store-price">$25</p>
+            <a href="#" class="btn store-btn">Coming soon</a>
+          </div>
+        </article>
+        <article class="store-card">
+          <div class="store-card-image">
+            <div class="store-placeholder">Product image</div>
+          </div>
+          <div class="store-card-body">
+            <h3>Hoodie</h3>
+            <p class="store-price">$45</p>
+            <a href="#" class="btn store-btn">Coming soon</a>
+          </div>
+        </article>
+        <article class="store-card">
+          <div class="store-card-image">
+            <div class="store-placeholder">Product image</div>
+          </div>
+          <div class="store-card-body">
+            <h3>Hat</h3>
+            <p class="store-price">$20</p>
+            <a href="#" class="btn store-btn">Coming soon</a>
+          </div>
+        </article>
+      </div>
+      <p class="store-note">Add your real products and link to your checkout (e.g. Square, Etsy, or Bandcamp). Replace the placeholders with product images and update the buttons to your store URLs.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> The Alley Kats.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
