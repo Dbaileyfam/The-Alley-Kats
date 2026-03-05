@@ -193,6 +193,7 @@ main {
   height: auto;
   display: block;
   margin: 0 auto 0.75rem;
+  mix-blend-mode: multiply;
 }
 
 .hero-brand .tagline {
