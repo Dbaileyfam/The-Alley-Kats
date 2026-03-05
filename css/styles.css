@@ -201,7 +201,6 @@ main {
   max-width: min(50vw, 200px);
   height: auto;
   display: block;
-  mix-blend-mode: multiply;
 }
 
 .hero-overlay .tagline {
