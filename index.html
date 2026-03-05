@@ -78,13 +78,12 @@
       padding: 2rem 1.5rem;
       background: rgba(0,0,0,0.35);
     }
-    .hero-logo-wrap {
-      background: rgba(0,0,0,0.5);
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      margin-bottom: 0.75rem;
+    .hero-logo-overlay {
+      max-width: min(50vw, 200px);
+      height: auto;
+      display: block;
+      mix-blend-mode: multiply;
     }
-    .hero-logo-overlay { max-width: min(50vw, 200px); height: auto; display: block; }
     .hero-overlay .tagline { margin: 0; text-shadow: 0 1px 4px rgba(0,0,0,0.8); color: rgba(255,255,255,0.95); font-size: 1.25rem; }
     .section { max-width: 700px; margin: 0 auto; padding: 4rem 1.5rem; }
     .intro { text-align: center; }
@@ -122,9 +121,7 @@
     <section class="hero hero-with-band-photo">
       <img src="images/band-photo.png" alt="" class="hero-band-photo">
       <div class="hero-overlay">
-        <div class="hero-logo-wrap">
-          <img src="images/logo-oval.png" alt="The Alley Kats" class="hero-logo-overlay">
-        </div>
+        <img src="images/logo-oval.png" alt="The Alley Kats" class="hero-logo-overlay">
         <p class="tagline">Live music that hits different.</p>
       </div>
     </section>
