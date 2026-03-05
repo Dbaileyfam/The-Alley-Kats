@@ -168,6 +168,48 @@ main {
   background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
 }
 
+/* Hero with band photo: photo fills section, logo overlaid on top */
+.hero-with-band-photo {
+  position: relative;
+  min-height: 55vh;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero-band-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 55vh;
+  padding: 2rem 1.5rem;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.hero-logo-overlay {
+  max-width: min(50vw, 200px);
+  height: auto;
+  margin-bottom: 0.5rem;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
+.hero-overlay .tagline {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.95);
+}
+
 .hero h1 {
   margin: 0 0 0.5rem;
   font-size: clamp(2.5rem, 8vw, 4rem);
@@ -185,21 +227,6 @@ main {
   margin: 0;
   font-size: 1.25rem;
   color: var(--muted);
-}
-
-.band-photo-section {
-  padding-top: 0;
-  padding-bottom: 2rem;
-}
-
-.band-photo {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-  margin: 0 auto;
-  display: block;
-  border-radius: 8px;
-  overflow: hidden;
 }
 
 /* Inner page hero */
