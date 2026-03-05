@@ -14,39 +14,78 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: system-ui, -apple-system, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
 }
 
+/* 801-style: header fixed at top, full width */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  background: rgba(15, 15, 15, 0.95);
+  left: 0;
+  right: 0;
+  background: rgba(15, 15, 15, 0.98);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  z-index: 10;
+  z-index: 100;
 }
 
 .nav {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1rem 1.5rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  margin: 0 auto;
+  max-width: 80rem;
+}
+
+@media (min-width: 640px) {
+  .nav {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav {
+    padding: 1rem 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 1rem 4rem;
+  }
 }
 
 .logo {
-  display: flex;
-  align-items: center;
+  display: block;
   text-decoration: none;
+  line-height: 0;
+  flex-shrink: 0;
 }
 
 .logo-img {
-  height: 2.5rem;
+  height: 2.75rem;
   width: auto;
   display: block;
+  max-width: 200px;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .logo-img {
+    height: 3rem;
+    max-width: 220px;
+  }
 }
 
 .logo:hover .logo-img {
@@ -58,7 +97,15 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .nav-links {
+    gap: 1.5rem;
+  }
 }
 
 .nav-links a {
@@ -69,6 +116,45 @@ body {
 .nav-links a:hover,
 .nav-links a.current {
   color: var(--accent);
+}
+
+/* Main content clears fixed header (801-style) */
+main {
+  flex: 1;
+  padding-top: 5.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+  main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  main {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
 }
 
 .hero {
