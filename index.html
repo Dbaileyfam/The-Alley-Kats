@@ -53,37 +53,29 @@
     @media (min-width: 768px) {
       main { padding-top: 6rem; padding-bottom: 6rem; padding-left: 3rem; padding-right: 3rem; }
     }
-    .hero-with-band-photo {
-      position: relative;
-      min-height: 55vh;
-      padding: 0;
+    .hero-band-only {
+      width: 100%;
+      min-height: 50vh;
       overflow: hidden;
     }
     .hero-band-photo {
-      position: absolute;
-      inset: 0;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .hero-overlay {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 55vh;
-      padding: 2rem 1.5rem;
-      background: rgba(0,0,0,0.35);
-    }
-    .hero-logo-overlay {
-      max-width: min(50vw, 200px);
       height: auto;
       display: block;
+      vertical-align: top;
     }
-    .hero-overlay .tagline { margin: 0; text-shadow: 0 1px 4px rgba(0,0,0,0.8); color: rgba(255,255,255,0.95); font-size: 1.25rem; }
+    .hero-brand {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      background: #0f0f0f;
+    }
+    .hero-brand .hero-logo {
+      max-width: min(85vw, 320px);
+      height: auto;
+      display: block;
+      margin: 0 auto 0.75rem;
+    }
+    .hero-brand .tagline { margin: 0; color: #888; font-size: 1.25rem; }
     .section { max-width: 700px; margin: 0 auto; padding: 4rem 1.5rem; }
     .intro { text-align: center; }
     .intro p { max-width: 500px; margin: 0 auto 1.5rem; color: #888; }
@@ -117,12 +109,12 @@
   </header>
 
   <main>
-    <section class="hero hero-with-band-photo">
-      <img src="images/band-photo.png" alt="" class="hero-band-photo">
-      <div class="hero-overlay">
-        <img src="images/logo-transparent.png" alt="The Alley Kats" class="hero-logo-overlay">
-        <p class="tagline">Live music that hits different.</p>
-      </div>
+    <section class="hero-band-only">
+      <img src="images/band-photo.png" alt="The Alley Kats band" class="hero-band-photo">
+    </section>
+    <section class="hero-brand">
+      <img src="images/logo-oval.png" alt="The Alley Kats" class="hero-logo">
+      <p class="tagline">Live music that hits different.</p>
     </section>
 
     <section class="section intro">
