@@ -197,13 +197,17 @@ main {
   background: rgba(0, 0, 0, 0.35);
 }
 
+.hero-logo-wrap {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+}
+
 .hero-logo-overlay {
   max-width: min(50vw, 200px);
   height: auto;
-  margin-bottom: 0.5rem;
   display: block;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
-  mix-blend-mode: darken;
 }
 
 .hero-overlay .tagline {
