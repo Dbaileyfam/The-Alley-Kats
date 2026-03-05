@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upcoming Events — The Alley Kats</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="logo"><img src="images/logo.png" alt="The Alley Kats" class="logo-img"></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html" class="current">Upcoming Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <h1>Upcoming Events</h1>
+      <p class="tagline">Come see us live.</p>
+    </section>
+
+    <section class="section">
+      <ul class="events-list">
+        <li class="event-card">
+          <div class="event-date">
+            <span class="event-day">15</span>
+            <span class="event-month">Mar</span>
+          </div>
+          <div class="event-details">
+            <h3>Venue Name</h3>
+            <p class="event-location">City, State</p>
+            <p class="event-time">8:00 PM</p>
+            <a href="#" class="event-link">Tickets / Info</a>
+          </div>
+        </li>
+        <li class="event-card">
+          <div class="event-date">
+            <span class="event-day">22</span>
+            <span class="event-month">Mar</span>
+          </div>
+          <div class="event-details">
+            <h3>Another Venue</h3>
+            <p class="event-location">City, State</p>
+            <p class="event-time">9:00 PM</p>
+            <a href="#" class="event-link">Tickets / Info</a>
+          </div>
+        </li>
+        <li class="event-card">
+          <div class="event-date">
+            <span class="event-day">—</span>
+            <span class="event-month">TBA</span>
+          </div>
+          <div class="event-details">
+            <h3>More dates coming soon</h3>
+            <p class="event-location">Stay tuned</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> The Alley Kats.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

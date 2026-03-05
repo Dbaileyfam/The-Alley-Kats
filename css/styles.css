@@ -38,14 +38,19 @@ body {
 }
 
 .logo {
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--text);
+  display: flex;
+  align-items: center;
   text-decoration: none;
 }
 
-.logo:hover {
-  color: var(--accent);
+.logo-img {
+  height: 2.5rem;
+  width: auto;
+  display: block;
+}
+
+.logo:hover .logo-img {
+  opacity: 0.9;
 }
 
 .nav-links {
@@ -61,7 +66,8 @@ body {
   text-decoration: none;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.current {
   color: var(--accent);
 }
 
@@ -82,9 +88,253 @@ body {
   letter-spacing: 0.02em;
 }
 
+.hero-logo {
+  max-width: min(90vw, 420px);
+  height: auto;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
 .tagline {
   margin: 0;
   font-size: 1.25rem;
+  color: var(--muted);
+}
+
+.band-photo-section {
+  padding-top: 0;
+  padding-bottom: 2rem;
+}
+
+.band-photo {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Inner page hero */
+.page-hero {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+}
+
+.page-hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  letter-spacing: 0.02em;
+}
+
+.page-hero .tagline {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Home page intro & links */
+.intro {
+  text-align: center;
+}
+
+.intro p {
+  max-width: 500px;
+  margin: 0 auto 1.5rem;
+}
+
+.home-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Events list */
+.events-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.event-card {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.event-card:last-child {
+  border-bottom: none;
+}
+
+.event-date {
+  flex-shrink: 0;
+  width: 4rem;
+  text-align: center;
+  background: var(--surface);
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.event-day {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.event-month {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.event-details h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.event-location,
+.event-time {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.event-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.event-link:hover {
+  text-decoration: underline;
+}
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.gallery-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-hint {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.gallery-hint code {
+  background: var(--surface);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Contact */
+.contact-section {
+  max-width: 600px;
+}
+
+.contact-blocks {
+  display: grid;
+  gap: 2rem;
+}
+
+.contact-block h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.contact-block p {
+  margin: 0 0 0.5rem;
+}
+
+.contact-block a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact-block a:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact-note {
+  margin-top: 2rem;
+  font-size: 0.85rem;
   color: var(--muted);
 }
 

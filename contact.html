@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — The Alley Kats</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="logo"><img src="images/logo.png" alt="The Alley Kats" class="logo-img"></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Upcoming Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" class="current">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <h1>Contact Us</h1>
+      <p class="tagline">Booking, press &amp; general inquiries.</p>
+    </section>
+
+    <section class="section contact-section">
+      <div class="contact-blocks">
+        <div class="contact-block">
+          <h3>Booking</h3>
+          <p>For show bookings and private events:</p>
+          <a href="mailto:booking@example.com">booking@example.com</a>
+        </div>
+        <div class="contact-block">
+          <h3>Follow us</h3>
+          <p>Stay in the loop:</p>
+          <ul class="social-links">
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="contact-note">Replace the email and social links above with your real contact info.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> The Alley Kats.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
