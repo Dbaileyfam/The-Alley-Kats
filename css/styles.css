@@ -192,7 +192,7 @@ main {
   justify-content: center;
   align-items: center;
   padding: 2rem 1.5rem;
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .hero-overlay .hero-logo {
@@ -201,6 +201,8 @@ main {
   display: block;
   margin-bottom: 0.5rem;
   mix-blend-mode: multiply;
+  opacity: 1;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
 
 .hero-overlay .tagline {
