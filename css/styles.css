@@ -203,6 +203,7 @@ main {
   margin-bottom: 0.5rem;
   display: block;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+  mix-blend-mode: darken;
 }
 
 .hero-overlay .tagline {
