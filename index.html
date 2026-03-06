@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Alley Kats — Home</title>
+  <!-- updated 2025-03-06 -->
   <style>
     * { box-sizing: border-box; }
     body {
@@ -77,27 +78,16 @@
       background: rgba(0,0,0,0.2);
     }
     .hero-logo-wrap {
-      position: relative;
-      display: inline-block;
+      background: rgba(0,0,0,0.7);
+      padding: 1.25rem 2rem;
+      border-radius: 50%;
       margin-bottom: 0.5rem;
     }
-    .hero-logo-wrap img {
-      max-width: min(55vw, 220px);
-      width: 100%;
+    .hero-logo-wrap .hero-logo {
+      max-width: min(50vw, 200px);
       height: auto;
       display: block;
-    }
-    .hero-logo-oval {
       mix-blend-mode: multiply;
-    }
-    .hero-logo-text {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
     }
     .hero-overlay .tagline { margin: 0; color: rgba(255,255,255,0.95); font-size: 1.2rem; text-shadow: 0 1px 3px rgba(0,0,0,0.6); }
     .section { max-width: 700px; margin: 0 auto; padding: 4rem 1.5rem; }
@@ -137,8 +127,7 @@
       <img src="images/band-photo.png" alt="The Alley Kats band" class="hero-band-photo">
       <div class="hero-overlay">
         <div class="hero-logo-wrap">
-        <img src="images/logo-oval.png?v=2" alt="" class="hero-logo hero-logo-oval" aria-hidden="true">
-        <img src="images/logo-transparent.png?v=2" alt="The Alley Kats" class="hero-logo hero-logo-text">
+        <img src="images/logo-oval.png?v=3" alt="The Alley Kats" class="hero-logo">
       </div>
         <p class="tagline">Live music that hits different.</p>
       </div>
