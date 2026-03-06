@@ -200,7 +200,6 @@ main {
   height: auto;
   display: block;
   margin-bottom: 0.5rem;
-  mix-blend-mode: multiply;
   opacity: 1;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
 }
