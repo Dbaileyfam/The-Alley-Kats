@@ -212,29 +212,17 @@ void main() {
       fallback();
       return;
     }
-    // Use embedded shaders first so it works without a server; fetch is optional
-    loadShaders().then(function (shaders) {
-      try {
-        initThree(shaders);
-        window.addEventListener('resize', resize);
-        window.addEventListener('mousemove', onMouseMove, { passive: true });
-        window.addEventListener('mouseleave', onMouseLeave);
-        rafId = requestAnimationFrame(tick);
-      } catch (e) {
-        console.warn('WebGL liquid metal init failed', e);
-        fallback();
-      }
-    }).catch(function () {
-      try {
-        initThree({ vert: vertSrc, frag: fragSrc });
-        window.addEventListener('resize', resize);
-        window.addEventListener('mousemove', onMouseMove, { passive: true });
-        window.addEventListener('mouseleave', onMouseLeave);
-        rafId = requestAnimationFrame(tick);
-      } catch (err) {
-        fallback();
-      }
-    });
+    // Always use embedded shaders so the effect works on GitHub Pages / any host (no fetch)
+    try {
+      initThree({ vert: vertSrc, frag: fragSrc });
+      window.addEventListener('resize', resize);
+      window.addEventListener('mousemove', onMouseMove, { passive: true });
+      window.addEventListener('mouseleave', onMouseLeave);
+      rafId = requestAnimationFrame(tick);
+    } catch (e) {
+      console.warn('WebGL liquid metal init failed', e);
+      fallback();
+    }
   }
 
   if (document.readyState === 'loading') {
