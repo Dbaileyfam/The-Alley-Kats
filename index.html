@@ -123,9 +123,13 @@
     .btn-outline { background: transparent; color: #c9a227; border: 2px solid #c9a227; }
     .site-footer { text-align: center; padding: 2rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); color: #888; font-size: 0.9rem; }
     .site-footer p { margin: 0; }
+    .canvas-bg-wrap{position:fixed;inset:0;z-index:0;overflow:hidden;background:#0a0a14;}
+    #canvas-bg{display:block;width:100%;height:100%;}
+    .canvas-bg-overlay{position:fixed;inset:0;z-index:1;background:rgba(8,6,18,0.58);pointer-events:none;}
+    .site-root{position:relative;z-index:2;display:flex;flex-direction:column;flex:1;min-height:100vh;}
   </style>
 </head>
-<body>
+<body data-background="liquid-metal">
   <div class="canvas-bg-wrap" aria-hidden="true">
     <canvas id="canvas-bg"></canvas>
   </div>
@@ -161,6 +165,7 @@
 
   <footer class="site-footer">
     <p>&copy; <span id="year"></span> The Alley Kats.</p>
+    <p style="margin-top:0.5rem;font-size:0.7rem;opacity:0.5;">Liquid metal background · <a href="https://github.com/Dbaileyfam/The-Alley-Kats" style="color:inherit;">Source</a></p>
   </footer>
   </div>
 
