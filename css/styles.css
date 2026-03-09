@@ -195,16 +195,6 @@ main {
   background: rgba(0, 0, 0, 0.2);
 }
 
-.hero-logo-wrap {
-  margin-bottom: 0.5rem;
-}
-
-.hero-logo-wrap .hero-logo {
-  max-width: min(85vw, 660px);
-  height: auto;
-  display: block;
-  mix-blend-mode: multiply;
-}
 
 .hero-overlay .tagline {
   margin: 0;
