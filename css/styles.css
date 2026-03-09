@@ -398,6 +398,22 @@ main {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
+/* Responsive 16:9 YouTube embed */
+.gallery-video-wrap--embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.gallery-video-embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 .gallery-video {
   display: block;
   width: 100%;
