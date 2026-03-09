@@ -1,90 +1,104 @@
 /**
- * Liquid background — one continuous flowing field (no blobs).
- * Soft animated gradients + mouse influence. Reduced-motion aware.
+ * Reggae-style background — warm flowing blobs (green, gold, red, orange).
+ * Canvas 2D only, no WebGL. Works everywhere. Respects prefers-reduced-motion.
  */
 (function () {
   'use strict';
 
-  const canvas = document.getElementById('canvas-bg');
+  var canvas = document.getElementById('canvas-bg');
   if (!canvas) return;
 
-  const ctx = canvas.getContext('2d');
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var ctx = canvas.getContext('2d');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  const config = {
-    waveCount: 3,
-    waveRadius: 1.4,
-    waveSpeed: 0.00035,
-    waveSpread: 0.45,
-    mouseInfluence: 0.0002,
-    blur: 40,
-  };
+  // Reggae / Rasta inspired: green, gold, red, plus warm orange and deep tones
+  var colors = [
+    { r: 20, g: 120, b: 60 },   // green
+    { r: 220, g: 165, b: 35 },  // gold
+    { r: 200, g: 50, b: 40 },   // red
+    { r: 230, g: 120, b: 50 },  // orange
+    { r: 80, g: 40, b: 80 },    // deep purple
+  ];
 
-  let w = 0, h = 0;
-  let time = 0;
-  let mouse = { x: -1, y: -1 };
-  let rafId = null;
+  var blobs = [];
+  var w = 0, h = 0;
+  var time = 0;
+  var mouse = { x: -1, y: -1 };
 
   function resize() {
     w = canvas.width = window.innerWidth;
     h = canvas.height = window.innerHeight;
+    if (blobs.length === 0) initBlobs();
+  }
+
+  function initBlobs() {
+    blobs = [];
+    for (var i = 0; i < 8; i++) {
+      blobs.push({
+        x: Math.random(),
+        y: Math.random(),
+        vx: (Math.random() - 0.5) * 0.0004,
+        vy: (Math.random() - 0.5) * 0.0004,
+        r: 0.25 + Math.random() * 0.25,
+        phase: Math.random() * Math.PI * 2,
+        color: colors[i % colors.length],
+      });
+    }
   }
 
   function tick() {
-    const slow = reducedMotion.matches ? 0.08 : 1;
-    time += config.waveSpeed * slow;
-    const minDim = Math.min(w, h);
-    const mx = mouse.x >= 0 ? mouse.x / w : 0.5;
-    const my = mouse.y >= 0 ? mouse.y / h : 0.5;
+    var speed = reduced.matches ? 0.12 : 1;
+    time += 0.002 * speed;
 
-    ctx.fillStyle = 'rgb(12, 10, 22)';
+    ctx.fillStyle = 'rgb(18, 12, 28)';
     ctx.fillRect(0, 0, w, h);
 
-    const r = config.waveRadius * minDim;
+    var mx = mouse.x >= 0 ? mouse.x / w : null;
+    var my = mouse.y >= 0 ? mouse.y / h : null;
+    var minD = Math.min(w, h);
 
-    for (let i = 0; i < config.waveCount; i++) {
-      const phase = (i / config.waveCount) * Math.PI * 2;
-      const t = time + phase;
-      // Slow flowing motion
-      let cx = 0.5 + Math.sin(t) * config.waveSpread;
-      let cy = 0.5 + Math.cos(t * 0.7) * config.waveSpread;
-      // Slight pull toward mouse
-      if (mouse.x >= 0 && mouse.y >= 0) {
-        cx += (mx - cx) * config.mouseInfluence * 60;
-        cy += (my - cy) * config.mouseInfluence * 60;
+    for (var i = 0; i < blobs.length; i++) {
+      var b = blobs[i];
+      if (mx != null && my != null) {
+        var dx = mx - b.x, dy = my - b.y;
+        var dist = Math.sqrt(dx * dx + dy * dy) || 0.001;
+        var pull = 0.00015 * speed * (1 - Math.min(1, dist / 0.4));
+        b.vx += (dx / dist) * pull;
+        b.vy += (dy / dist) * pull;
       }
-      const px = cx * w;
-      const py = cy * h;
+      b.vx *= 0.98;
+      b.vy *= 0.98;
+      b.x += b.vx * 60;
+      b.y += b.vy * 60;
+      b.phase += 0.008 * speed;
+      b.x = (b.x + 1) % 1;
+      b.y = (b.y + 1) % 1;
 
-      const gr = ctx.createRadialGradient(px, py, 0, px, py, r);
-      gr.addColorStop(0, 'rgba(220, 228, 245, 0.22)');
-      gr.addColorStop(0.4, 'rgba(120, 130, 160, 0.12)');
-      gr.addColorStop(0.7, 'rgba(40, 45, 65, 0.05)');
-      gr.addColorStop(1, 'rgba(12, 10, 22, 0)');
-
+      var radius = b.r * minD * (1 + 0.12 * Math.sin(b.phase));
+      var x = b.x * w;
+      var y = b.y * h;
+      var g = ctx.createRadialGradient(x, y, 0, x, y, radius);
+      g.addColorStop(0, 'rgba(' + b.color.r + ',' + b.color.g + ',' + b.color.b + ',0.55)');
+      g.addColorStop(0.45, 'rgba(' + b.color.r + ',' + b.color.g + ',' + b.color.b + ',0.25)');
+      g.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.save();
-      ctx.filter = `blur(${config.blur}px)`;
-      ctx.fillStyle = gr;
-      ctx.fillRect(0, 0, w, h);
+      ctx.filter = 'blur(25px)';
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fill();
       ctx.restore();
     }
+    ctx.globalCompositeOperation = 'source-over';
 
-    rafId = requestAnimationFrame(tick);
-  }
-
-  function onMouseMove(e) {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  }
-
-  function onMouseLeave() {
-    mouse.x = -1;
-    mouse.y = -1;
+    requestAnimationFrame(tick);
   }
 
   window.addEventListener('resize', resize);
-  window.addEventListener('mousemove', onMouseMove, { passive: true });
-  window.addEventListener('mouseleave', onMouseLeave);
+  window.addEventListener('mousemove', function (e) { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
+  window.addEventListener('mouseleave', function () { mouse.x = -1; mouse.y = -1; });
+
   resize();
-  rafId = requestAnimationFrame(tick);
+  requestAnimationFrame(tick);
 })();
