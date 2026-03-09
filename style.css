@@ -1,0 +1,50 @@
+/**
+ * Liquid metal background layout: full viewport, fixed behind content.
+ * Ensures canvas fills the window and content stays readable with overlay.
+ */
+
+/* Background container: fills entire viewport, fixed so it doesn't scroll */
+.canvas-bg-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #0a0a16;
+}
+
+#canvas-bg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark overlay so text and content remain readable on top of the effect */
+.canvas-bg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: rgba(8, 6, 18, 0.62);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .canvas-bg-overlay {
+    background: rgba(8, 6, 18, 0.78);
+  }
+}
+
+/* Fallback when WebGL is unavailable: static gradient already set on .canvas-bg-wrap by JS */
+.bg-webgl-fallback .canvas-bg-wrap {
+  background: radial-gradient(ellipse 100% 100% at 50% 50%, #1a1c24 0%, #0e0f14 50%, #08090c 100%);
+}
+
+/* Content sits above canvas and overlay */
+.site-root {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+}
