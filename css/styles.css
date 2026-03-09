@@ -196,6 +196,21 @@ main {
 }
 
 
+.hero-logo-oval-wrap {
+  overflow: hidden;
+  border-radius: 50%;
+  line-height: 0;
+  display: inline-block;
+}
+
+.hero-logo-oval-wrap img {
+  max-width: min(70vw, 380px);
+  width: auto;
+  height: auto;
+  display: block;
+  vertical-align: top;
+}
+
 .hero-overlay .tagline {
   margin: 0;
   color: rgba(255, 255, 255, 0.95);

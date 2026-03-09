@@ -77,6 +77,19 @@
       padding: 2rem 1.5rem;
       background: rgba(0,0,0,0.2);
     }
+    .hero-logo-oval-wrap {
+      overflow: hidden;
+      border-radius: 50%;
+      line-height: 0;
+      display: inline-block;
+    }
+    .hero-logo-oval-wrap img {
+      max-width: min(70vw, 380px);
+      width: auto;
+      height: auto;
+      display: block;
+      vertical-align: top;
+    }
     .hero-overlay .tagline { margin: 0; color: rgba(255,255,255,0.95); font-size: 1.2rem; text-shadow: 0 1px 3px rgba(0,0,0,0.6); }
     .section { max-width: 700px; margin: 0 auto; padding: 4rem 1.5rem; }
     .intro { text-align: center; }
@@ -113,7 +126,11 @@
   <main>
     <section class="hero-with-band">
       <img src="images/band-photo.png" alt="The Alley Kats band" class="hero-band-photo">
-      <div class="hero-overlay"></div>
+      <div class="hero-overlay">
+        <div class="hero-logo-oval-wrap">
+          <img src="images/logo-hero.png" alt="The Alley Kats">
+        </div>
+      </div>
     </section>
 
     <section class="section intro">
