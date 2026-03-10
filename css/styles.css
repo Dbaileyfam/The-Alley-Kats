@@ -590,7 +590,8 @@ main {
   height: 100%;
   min-height: 280px;
   object-fit: cover;
-  object-position: center center;
+  /* Nudge crop left so more of the person is revealed */
+  object-position: 65% 40%;
 }
 
 @media (max-width: 640px) {
