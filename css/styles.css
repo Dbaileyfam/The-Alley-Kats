@@ -24,7 +24,7 @@ body {
 }
 
 /* Pages with canvas background: use block layout so fixed layer takes no space */
-body:has(.canvas-bg-wrap) {
+body.page-with-canvas-bg {
   display: block;
 }
 
