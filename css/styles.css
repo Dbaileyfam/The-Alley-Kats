@@ -769,6 +769,12 @@ main {
   color: var(--accent);
 }
 
+.releases-album-price {
+  margin-left: 0.5rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
 .release-cover-link {
   display: block;
   padding: 0 1rem 0.75rem;
