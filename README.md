@@ -37,3 +37,12 @@ python3 -m http.server 8000
    - `https://YOUR_USERNAME.github.io/YOUR_REPO/`
 
 To use a custom domain later, set it in the same **Pages** settings.
+
+## Image quality (avoid blur)
+
+Pictures can look blurry on the site if the **file is smaller than the display size**. The browser upscales small images, which softens them.
+
+- **Homepage hero** (`images/hero-band-logo.png`): Use an image **at least 720px wide** (ideally 1440px for retina). Replace the file and keep the same filename.
+- **Media / gallery photos** (`images/`): Use images at least **800–1000px** on the long side so they stay sharp in the grid and when viewed larger.
+
+Rule of thumb: the image file’s width (in pixels) should be at least as large as the width it’s shown at on screen; double that for crisp look on high-DPI screens.
