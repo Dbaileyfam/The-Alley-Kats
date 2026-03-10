@@ -76,11 +76,9 @@
       object-fit: cover;
       display: block;
       border-radius: 1.5rem;
-      /* Slight zoom to crop out white border in the image */
-      transform: scale(1.08);
-      image-rendering: -webkit-optimize-contrast;
+      /* Crisp rendering: no scale/filter so a high-res image stays sharp */
+      image-rendering: auto;
       backface-visibility: hidden;
-      filter: contrast(1.06) saturate(1.05);
     }
     .hero-overlay {
       position: absolute;
