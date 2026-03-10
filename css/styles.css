@@ -418,12 +418,18 @@ main {
   color: #c5c5c5;
 }
 
+/* Media sections: wider so bento layout has room */
+.media-page .media-videos.section,
+.media-page .media-photos.section {
+  max-width: 920px;
+}
+
 /* Videos — bento: featured full-width, then two side-by-side */
 .media-videos-bento {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-  max-width: 900px;
+  gap: 1.5rem;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -434,32 +440,34 @@ main {
 }
 
 .media-video-card {
-  background: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
   border-radius: 14px;
   overflow: hidden;
-  border-left: 4px solid #c9a227;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 2px solid rgba(201, 162, 39, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .media-video-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55);
+  border-color: #c9a227;
 }
 
 .media-video-card--featured {
   grid-column: 1 / -1;
-  border-left-width: 6px;
+  border-width: 3px;
 }
 
 .media-video-label {
   margin: 0;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1.25rem;
   font-family: 'Oswald', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #c5c5c5;
-  background: rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c9a227;
+  background: rgba(201, 162, 39, 0.12);
+  border-top: 1px solid rgba(201, 162, 39, 0.25);
 }
 
 .gallery-video-wrap {
@@ -498,25 +506,27 @@ main {
   vertical-align: middle;
 }
 
-/* Photos — bento: one large, three stacked (polaroid style) */
+/* Photos — bento: one large left, three polaroids stacked right */
 .media-photos-bento {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  grid-auto-rows: minmax(180px, auto);
-  gap: 1.25rem;
-  max-width: 900px;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 100%;
   margin: 0 auto;
+  min-height: 420px;
 }
 
 @media (max-width: 640px) {
   .media-photos-bento {
     grid-template-columns: 1fr;
-    grid-auto-rows: auto;
+    grid-template-rows: auto;
+    min-height: 0;
   }
 }
 
 .media-photo-item {
-  overflow: hidden;
+  overflow: visible;
   border-radius: 8px;
   background: var(--surface);
 }
@@ -524,39 +534,47 @@ main {
 .media-photo-item--large {
   grid-column: 1;
   grid-row: 1 / 4;
-  min-height: 280px;
+  min-height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
 }
 
 @media (max-width: 640px) {
   .media-photo-item--large {
     grid-column: 1;
     grid-row: auto;
-    min-height: 260px;
+    min-height: 280px;
   }
 }
 
+/* Polaroid: white/cream frame, visible tilt, shadow */
 .media-photo-item--polaroid {
-  background: #1a1a1a;
-  padding: 0.5rem 0.5rem 2rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  background: #f5f0e8;
+  padding: 0.6rem 0.6rem 2.25rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.08);
   transform: rotate(var(--polaroid-rotate, 0deg));
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   aspect-ratio: 3 / 4;
   display: block;
+}
+
+.media-photo-item--polaroid:nth-of-type(2) { --polaroid-rotate: -3deg; }
+.media-photo-item--polaroid:nth-of-type(3) { --polaroid-rotate: 2.5deg; }
+.media-photo-item--polaroid:nth-of-type(4) { --polaroid-rotate: -2deg; }
+
+.media-photo-item--polaroid:hover {
+  transform: rotate(0deg) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
 }
 
 .media-photo-item--polaroid img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.media-photo-item--polaroid:nth-of-type(2) { --polaroid-rotate: -1.5deg; }
-.media-photo-item--polaroid:nth-of-type(3) { --polaroid-rotate: 1.2deg; }
-.media-photo-item--polaroid:nth-of-type(4) { --polaroid-rotate: -0.8deg; }
-
-.media-photo-item--polaroid:hover {
-  transform: rotate(0deg) scale(1.02);
+  display: block;
+  border-radius: 1px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
 }
 
 .media-photo-item img {
