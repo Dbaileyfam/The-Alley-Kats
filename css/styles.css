@@ -470,8 +470,15 @@ main {
 
 /* Media sections: wider so bento layout has room */
 .media-page .media-videos.section,
-.media-page .media-photos.section {
+.media-page .media-photos.section,
+.media-page .media-spotify.section {
   max-width: 920px;
+}
+
+.spotify-embed-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 /* Videos — bento: featured full-width, then two side-by-side */
@@ -794,12 +801,13 @@ main {
   margin: 0 0 0.5rem;
 }
 
-.contact-block a {
+/* Only style the booking email as a text link, not the social buttons */
+.contact-block > p + a {
   color: var(--accent);
   text-decoration: none;
 }
 
-.contact-block a:hover {
+.contact-block > p + a:hover {
   text-decoration: underline;
 }
 
@@ -816,22 +824,27 @@ main {
   margin: 0;
 }
 
-.social-links a {
+/* Button-style social links */
+.contact-block .social-links a {
   display: inline-block;
-  padding: 0.5rem 1rem;
-  color: var(--accent);
-  background: transparent;
+  padding: 0.6rem 1.25rem;
+  color: var(--bg);
+  background: var(--accent);
   border: 2px solid var(--accent);
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
-  font-weight: 500;
-  transition: background 0.2s, color 0.2s;
+  font-weight: 600;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
 }
 
-.social-links a:hover {
-  background: var(--accent);
-  color: var(--bg);
+.contact-block .social-links a:hover {
+  background: transparent;
+  color: var(--accent);
   text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(159, 226, 191, 0.25);
 }
 
 .section {
