@@ -23,13 +23,23 @@ body {
   line-height: 1.6;
 }
 
-/* Canvas background (matches homepage reggae effect) */
+/* Canvas background (matches homepage) — fixed behind content, no flow space */
 .canvas-bg-wrap {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 0;
   overflow: hidden;
   background: radial-gradient(ellipse 80% 80% at 50% 50%, #1a2530 0%, #0f1419 100%);
+  pointer-events: none;
+  /* Don't take space in flex layout (body is flex) */
+  flex: 0 0 0;
+  min-height: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
 }
 .canvas-bg-wrap #canvas-bg {
   display: block;
@@ -37,7 +47,7 @@ body {
   height: 100%;
 }
 .canvas-bg-overlay {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 1;
   background: rgba(10, 8, 20, 0.4);
