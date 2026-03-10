@@ -7,6 +7,11 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <div class="canvas-bg-wrap" aria-hidden="true">
+    <canvas id="canvas-bg"></canvas>
+  </div>
+  <div class="canvas-bg-overlay" aria-hidden="true"></div>
+  <div class="site-root">
   <header class="site-header">
     <nav class="nav">
       <ul class="nav-links">
@@ -49,7 +54,9 @@
   <footer class="site-footer">
     <p>&copy; <span id="year"></span> The Alley Kats.</p>
   </footer>
+  </div>
 
+  <script src="js/background-effect.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
