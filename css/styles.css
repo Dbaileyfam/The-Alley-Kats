@@ -743,6 +743,21 @@ main {
   display: block;
 }
 
+.release-cover-pdf {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.release-cover-pdf iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+  object-fit: cover;
+}
+
 .release-cover-title {
   margin: 0;
   padding: 0.75rem 1rem;
@@ -769,14 +784,20 @@ main {
   color: var(--accent);
 }
 
-.releases-vinyl-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+.release-cover-link {
+  display: block;
+  padding: 0 1rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-decoration: none;
 }
 
-.releases-vinyl-links .store-btn {
-  width: auto;
+.release-cover-link:hover {
+  text-decoration: underline;
+}
+
+.releases-covers--vinyl {
+  margin-top: 0.5rem;
 }
 
 /* Store */
