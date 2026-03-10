@@ -3,9 +3,12 @@
 :root {
   --bg: #0f0f0f;
   --surface: #1a1a1a;
-  --text: #f0f0f0;
-  --accent: #c9a227;
-  --muted: #888;
+  --seafoam: #9FE2BF;
+  --lavender: #C9B1E8;
+  --lightblue: #87CEEB;
+  --text: var(--lightblue);
+  --accent: var(--seafoam);
+  --muted: var(--lavender);
 }
 
 * {
@@ -147,13 +150,13 @@ body.page-with-canvas-bg {
 }
 
 .nav-links a {
-  color: var(--muted);
+  color: var(--lavender);
   text-decoration: none;
 }
 
 .nav-links a:hover,
 .nav-links a.current {
-  color: var(--accent);
+  color: var(--seafoam);
 }
 
 /* Main content clears fixed header (801-style) */
@@ -315,13 +318,13 @@ main {
 .page-hero--transparent h1 {
   font-family: 'Righteous', cursive;
   font-size: clamp(2.25rem, 7vw, 3.75rem);
-  color: #c9a227;
+  color: var(--seafoam);
   letter-spacing: 0.02em;
 }
 
 .page-hero--transparent .tagline {
   font-family: 'Oswald', sans-serif;
-  color: #c5c5c5;
+  color: var(--lavender);
   font-size: clamp(1.1rem, 2.5vw, 1.25rem);
 }
 
@@ -442,18 +445,18 @@ main {
   margin: 0 0 1.5rem;
   font-size: clamp(1.35rem, 3vw, 1.75rem);
   font-weight: 600;
-  color: #c9a227;
+  color: var(--seafoam);
   font-family: 'Oswald', sans-serif;
   text-align: center;
 }
 
 .media-page .section p,
 .media-page .gallery-hint {
-  color: #c5c5c5;
+  color: var(--lavender);
 }
 
 .media-page .gallery-placeholder {
-  color: #c5c5c5;
+  color: var(--lavender);
 }
 
 /* Media sections: wider so bento layout has room */
@@ -489,7 +492,7 @@ main {
 .media-video-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55);
-  border-color: #c9a227;
+  border-color: var(--seafoam);
 }
 
 .media-video-card--featured {
@@ -503,7 +506,7 @@ main {
   font-family: 'Oswald', sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  color: #c9a227;
+  color: var(--seafoam);
   background: rgba(201, 162, 39, 0.12);
   border-top: 1px solid rgba(201, 162, 39, 0.25);
 }
