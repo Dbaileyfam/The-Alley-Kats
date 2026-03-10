@@ -269,6 +269,24 @@ main {
   font-size: 1.1rem;
 }
 
+/* Media page: no grey box, match homepage fonts & colors */
+.page-hero--transparent {
+  background: transparent;
+}
+
+.page-hero--transparent h1 {
+  font-family: 'Righteous', cursive;
+  font-size: clamp(2.25rem, 7vw, 3.75rem);
+  color: #c9a227;
+  letter-spacing: 0.02em;
+}
+
+.page-hero--transparent .tagline {
+  font-family: 'Oswald', sans-serif;
+  color: #c5c5c5;
+  font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+}
+
 /* Home page intro & links */
 .intro {
   text-align: center;
@@ -381,12 +399,22 @@ main {
   text-decoration: underline;
 }
 
-/* Gallery */
+/* Gallery / Media */
 .gallery-video-heading {
   margin: 0 0 1rem;
-  font-size: 1.25rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   font-weight: 600;
-  color: var(--text);
+  color: #c9a227;
+  font-family: 'Oswald', sans-serif;
+}
+
+.media-page .section p,
+.media-page .gallery-hint {
+  color: #c5c5c5;
+}
+
+.media-page .gallery-placeholder {
+  color: #c5c5c5;
 }
 
 .gallery-video-wrap {
