@@ -743,21 +743,6 @@ main {
   display: block;
 }
 
-.release-cover-pdf {
-  width: 100%;
-  aspect-ratio: 1;
-  background: var(--bg);
-  overflow: hidden;
-}
-
-.release-cover-pdf iframe {
-  width: 100%;
-  height: 100%;
-  display: block;
-  border: none;
-  object-fit: cover;
-}
-
 .release-cover-title {
   margin: 0;
   padding: 0.75rem 1rem;
