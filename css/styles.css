@@ -337,6 +337,25 @@ main {
   font-size: clamp(1.1rem, 2.5vw, 1.25rem);
 }
 
+.store-coming-soon {
+  margin: 1rem 0 0;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.store-coming-soon a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.store-coming-soon a:hover {
+  text-decoration: underline;
+}
+
 /* Home page intro & links */
 .intro {
   text-align: center;
