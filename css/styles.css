@@ -809,36 +809,6 @@ main {
   margin-top: 0.5rem;
 }
 
-.releases-album-cover {
-  margin-top: 0.5rem;
-}
-
-.release-cover--album {
-  max-width: 280px;
-  margin: 0 auto;
-}
-
-.release-cover--album img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  display: block;
-}
-
-.releases-album-links {
-  margin: 0.75rem 0 0;
-  font-size: 0.9rem;
-}
-
-.releases-album-links a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.releases-album-links a:hover {
-  text-decoration: underline;
-}
-
 /* Store */
 .store-section {
   max-width: 900px;
