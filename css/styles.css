@@ -1144,8 +1144,49 @@ main {
   margin-bottom: 0.75rem;
 }
 
-.epk-social {
-  justify-content: flex-start;
+.epk-social-links {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.epk-social-links li {
+  margin: 0;
+}
+
+.epk-social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  color: var(--bg);
+  background: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.epk-social-links a:hover {
+  background: transparent;
+  color: var(--accent);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(159, 226, 191, 0.25);
+}
+
+.epk-social-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
 }
 
 .epk-section--contact .epk-prose p {
