@@ -814,6 +814,12 @@ main {
   max-width: 900px;
 }
 
+.store-top-cta {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
 .store-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
