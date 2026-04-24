@@ -820,6 +820,22 @@ main {
   padding-bottom: 1rem;
 }
 
+.store-product-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .store-product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+.store-product-embed {
+  min-height: 120px;
+}
+
 .store-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -893,6 +909,18 @@ main {
   margin-top: 2rem;
   font-size: 0.85rem;
   color: var(--muted);
+}
+
+.store-note--tight {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.store-note code {
+  background: var(--surface);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.9em;
 }
 
 /* Contact */

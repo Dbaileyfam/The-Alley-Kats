@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=8">
+  <link rel="stylesheet" href="css/styles.css?v=9">
 </head>
 <body class="page-with-canvas-bg">
   <div class="canvas-bg-wrap" aria-hidden="true">
@@ -24,30 +24,62 @@
         <li><a href="gallery.html">Media</a></li>
         <li><a href="epk.html">EPK</a></li>
         <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="https://hs8vtc-rx.myshopify.com/collections/all" class="current">Merch</a></li>
+        <li><a href="store.html" class="current">Merch</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section class="section store-top-cta">
-      <a href="https://hs8vtc-rx.myshopify.com/collections/all" class="btn" target="_blank" rel="noopener">Shopify Merch Store</a>
-    </section>
-
     <section class="page-hero page-hero--transparent">
       <h1>Merch</h1>
       <p class="tagline">Official merch. Rep the band.</p>
-      <p>
-        <a href="#shopify-store" class="btn">Shop Now</a>
-      </p>
+      <p class="store-coming-soon">Shop individual items below, or <a href="https://hs8vtc-rx.myshopify.com/collections/all" target="_blank" rel="noopener">open the full Shopify store</a>.</p>
     </section>
 
-    <section id="shopify-store" class="section store-section">
-      <h2 class="music-section-title">Merch Store</h2>
-      <p>
-        <a href="https://hs8vtc-rx.myshopify.com/collections/all" class="btn btn-outline" target="_blank" rel="noopener">Open full store</a>
-      </p>
-      <div id='collection-component-1776989852348'></div>
+    <section class="section store-section">
+      <h2 class="music-section-title">Shop</h2>
+      <p class="store-note store-note--tight">Each block is a Shopify buy button for one product. Add more empty <code>div</code>s and matching entries in the script list to match new Buy Button embeds from Shopify.</p>
+      <div class="store-product-grid">
+        <div id="product-component-vinyl" class="store-product-embed" aria-label="Vinyl product"></div>
+        <div id="product-component-koozie" class="store-product-embed" aria-label="Koozie product"></div>
+        <div id="product-component-wristband" class="store-product-embed" aria-label="Wristband product"></div>
+      </div>
+    </section>
+
+    <section class="section store-section">
+      <h2 class="music-section-title">Designs &amp; email orders</h2>
+      <div class="store-grid">
+        <article class="store-card">
+          <div class="store-card-image">
+            <img src="images/merch/tshirt-many-moons-25.png" alt="Many Moons T‑Shirt design">
+          </div>
+          <div class="store-card-body">
+            <h3>Many Moons T‑Shirt</h3>
+            <p class="store-price">$25</p>
+            <a href="merch/tshirt-many-moons-25.pdf" class="btn store-btn" target="_blank" rel="noopener">View design</a>
+          </div>
+        </article>
+        <article class="store-card">
+          <div class="store-card-image">
+            <img src="images/merch/bracelet-internal-message.png" alt="The Alley Kats Internal Message bracelet">
+          </div>
+          <div class="store-card-body">
+            <h3>Bracelet</h3>
+            <p class="store-price">$1</p>
+            <a href="mailto:atblackblue24@icloud.com?subject=Bracelet%20Order%20-%20The%20Alley%20Kats" class="btn store-btn">Order by email</a>
+          </div>
+        </article>
+        <article class="store-card">
+          <div class="store-card-image">
+            <img src="images/merch/koozie-purple.png" alt="The Alley Kats koozie">
+          </div>
+          <div class="store-card-body">
+            <h3>Koozie</h3>
+            <p class="store-price">$5</p>
+            <a href="mailto:atblackblue24@icloud.com?subject=Koozie%20Order%20-%20The%20Alley%20Kats" class="btn store-btn">Order by email</a>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="section releases-album-section">
@@ -124,12 +156,8 @@
   domain: 'hs8vtc-rx.myshopify.com',
   storefrontAccessToken: 'cd02b5da9cefebaa8c32939ac0ef36de',
   });
-  ShopifyBuy.UI.onReady(client).then(function (ui) {
-  ui.createComponent('collection', {
-  id: '309560541286',
-  node: document.getElementById('collection-component-1776989852348'),
-  moneyFormat: '%24%7B%7Bamount%7D%7D',
-  options: {
+  var moneyFormat = '%24%7B%7Bamount%7D%7D';
+  var options = {
   "product": {
   "styles": {
   "product": {
@@ -242,8 +270,26 @@
   }
   }
   }
-  },
+  };
+  var products = [
+  { id: '7940818108518', node: document.getElementById('product-component-vinyl') },
+  { id: '7976849539174', node: document.getElementById('product-component-koozie') },
+  { id: '7976858189926', node: document.getElementById('product-component-wristband') }
+  ];
+  ShopifyBuy.UI.onReady(client).then(function (ui) {
+  return products.reduce(function (chain, item) {
+  return chain.then(function () {
+  if (!item.node) {
+  return Promise.resolve();
+  }
+  return Promise.resolve(ui.createComponent('product', {
+  id: item.id,
+  node: item.node,
+  moneyFormat: moneyFormat,
+  options: options
+  }));
   });
+  }, Promise.resolve());
   });
   }
   })();
