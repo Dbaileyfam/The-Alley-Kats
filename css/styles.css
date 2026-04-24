@@ -842,6 +842,24 @@ main {
   gap: 0.75rem;
 }
 
+.store-product-embed-wrap--shirt {
+  width: 100%;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .store-product-grid .store-product-embed-wrap--shirt {
+    grid-column: 1 / -1;
+    max-width: 520px;
+  }
+}
+
+.store-product-embed--shirt {
+  min-height: 200px;
+}
+
 .store-product-heading {
   margin: 0;
   font-family: 'Oswald', sans-serif;

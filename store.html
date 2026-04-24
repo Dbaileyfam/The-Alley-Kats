@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=13">
+  <link rel="stylesheet" href="css/styles.css?v=14">
 </head>
 <body class="page-with-canvas-bg">
   <div class="canvas-bg-wrap" aria-hidden="true">
@@ -38,9 +38,9 @@
 
     <section class="section store-section">
       <div class="store-product-grid">
-        <div class="store-product-embed-wrap">
+        <div class="store-product-embed-wrap store-product-embed-wrap--shirt">
+          <div id="product-component-shirt" class="store-product-embed store-product-embed--shirt" aria-label="Nothing Is Real T-Shirt"></div>
           <h3 class="store-product-heading">The Alley Kats &lsquo;Nothing Is Real&rsquo; T-Shirt</h3>
-          <div id="product-component-shirt" class="store-product-embed" aria-label="Nothing Is Real T-Shirt"></div>
         </div>
         <div id="product-component-vinyl" class="store-product-embed" aria-label="Vinyl product"></div>
         <div id="product-component-koozie" class="store-product-embed" aria-label="Koozie product"></div>
@@ -253,10 +253,18 @@
   }
   }
   };
-  function optionsWithProductTitleHidden(base) {
+  function optionsForShirtProduct(base) {
   var o = JSON.parse(JSON.stringify(base));
   o.product = o.product || {};
-  o.product.contents = Object.assign({}, o.product.contents, { title: false });
+  o.product.contents = Object.assign({}, o.product.contents, {
+  title: false,
+  options: false
+  });
+  o.product.width = '480px';
+  o.modalProduct = o.modalProduct || {};
+  o.modalProduct.contents = Object.assign({}, o.modalProduct.contents, {
+  options: false
+  });
   return o;
   }
   var products = [
@@ -271,7 +279,7 @@
   if (!item.node) {
   return Promise.resolve();
   }
-  var embedOptions = item.useCustomTitle ? optionsWithProductTitleHidden(options) : options;
+  var embedOptions = item.useCustomTitle ? optionsForShirtProduct(options) : options;
   return Promise.resolve(ui.createComponent('product', {
   id: item.id,
   node: item.node,
