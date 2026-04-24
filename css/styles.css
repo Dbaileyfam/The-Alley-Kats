@@ -905,24 +905,6 @@ main {
   font-size: 0.8rem;
 }
 
-.store-note {
-  margin-top: 2rem;
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-.store-note--tight {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-}
-
-.store-note code {
-  background: var(--surface);
-  padding: 0.1em 0.35em;
-  border-radius: 4px;
-  font-size: 0.9em;
-}
-
 /* Contact */
 .contact-section {
   max-width: 600px;
