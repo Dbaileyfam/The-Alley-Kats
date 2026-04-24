@@ -843,6 +843,8 @@ body.store-merch-page main > .section.store-section:first-of-type {
   max-width: 520px;
   margin-left: auto;
   margin-right: auto;
+  gap: 0.25rem;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
@@ -853,17 +855,12 @@ body.store-merch-page main > .section.store-section:first-of-type {
 }
 
 .store-product-embed--shirt {
-  min-height: 200px;
+  min-height: 0;
+  width: 100%;
 }
 
-.store-product-heading {
-  margin: 0;
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
-  font-weight: 600;
-  color: var(--seafoam);
-  text-align: center;
-  line-height: 1.35;
+.store-product-embed--shirt iframe {
+  display: block;
 }
 
 .store-grid {
