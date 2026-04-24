@@ -337,23 +337,13 @@ main {
   font-size: clamp(1.1rem, 2.5vw, 1.25rem);
 }
 
-.store-coming-soon {
-  margin: 1rem 0 0;
-  max-width: 32rem;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 0.95rem;
-  color: var(--muted);
-  line-height: 1.5;
+/* Merch page: tighter hero + products (no extra intro line) */
+body.store-merch-page .page-hero.page-hero--transparent {
+  padding: 2rem 1.5rem 0.5rem;
 }
 
-.store-coming-soon a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.store-coming-soon a:hover {
-  text-decoration: underline;
+body.store-merch-page main > .section.store-section:first-of-type {
+  padding-top: 1rem;
 }
 
 /* Home page intro & links */
