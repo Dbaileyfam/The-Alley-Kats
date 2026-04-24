@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=10">
+  <link rel="stylesheet" href="css/styles.css?v=11">
 </head>
 <body class="page-with-canvas-bg">
   <div class="canvas-bg-wrap" aria-hidden="true">
@@ -38,7 +38,10 @@
 
     <section class="section store-section">
       <div class="store-product-grid">
-        <div id="product-component-shirt" class="store-product-embed" aria-label="Nothing Is Real T-Shirt"></div>
+        <div class="store-product-embed-wrap">
+          <h3 class="store-product-heading">The Alley Kats &lsquo;Nothing Is Real&rsquo; T-Shirt</h3>
+          <div id="product-component-shirt" class="store-product-embed" aria-label="Nothing Is Real T-Shirt"></div>
+        </div>
         <div id="product-component-vinyl" class="store-product-embed" aria-label="Vinyl product"></div>
         <div id="product-component-koozie" class="store-product-embed" aria-label="Koozie product"></div>
         <div id="product-component-wristband" class="store-product-embed" aria-label="Wristband product"></div>
@@ -192,8 +195,14 @@
   }
   }
   };
+  function optionsWithProductTitleHidden(base) {
+  var o = JSON.parse(JSON.stringify(base));
+  o.product = o.product || {};
+  o.product.contents = Object.assign({}, o.product.contents, { title: false });
+  return o;
+  }
   var products = [
-  { id: '7972358455398', node: document.getElementById('product-component-shirt') },
+  { id: '7972358455398', node: document.getElementById('product-component-shirt'), useCustomTitle: true },
   { id: '7940818108518', node: document.getElementById('product-component-vinyl') },
   { id: '7976849539174', node: document.getElementById('product-component-koozie') },
   { id: '7976858189926', node: document.getElementById('product-component-wristband') }
@@ -204,11 +213,12 @@
   if (!item.node) {
   return Promise.resolve();
   }
+  var embedOptions = item.useCustomTitle ? optionsWithProductTitleHidden(options) : options;
   return Promise.resolve(ui.createComponent('product', {
   id: item.id,
   node: item.node,
   moneyFormat: moneyFormat,
-  options: options
+  options: embedOptions
   }));
   });
   }, Promise.resolve());

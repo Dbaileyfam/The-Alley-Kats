@@ -836,6 +836,22 @@ main {
   min-height: 120px;
 }
 
+.store-product-embed-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.store-product-heading {
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  font-weight: 600;
+  color: var(--seafoam);
+  text-align: center;
+  line-height: 1.35;
+}
+
 .store-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
