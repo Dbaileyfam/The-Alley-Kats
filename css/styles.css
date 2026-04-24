@@ -827,8 +827,67 @@ main {
 }
 
 @media (min-width: 768px) {
-  .store-product-grid {
+  .store-product-grid:not(.store-product-grid--diamond) {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+/* Merch: diamond layout (shirt top, vinyl | koozie middle, wristband bottom center) */
+@media (min-width: 768px) {
+  .store-product-grid--diamond {
+    grid-template-columns: 1fr minmax(220px, 400px) 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 2rem 1.25rem;
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: start;
+    justify-items: stretch;
+  }
+
+  .store-product-grid--diamond .store-product-slot--shirt {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    width: 100%;
+  }
+
+  .store-product-grid--diamond .store-product-slot--vinyl {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: end;
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .store-product-grid--diamond .store-product-slot--koozie {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: start;
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .store-product-grid--diamond .store-product-slot--wristband {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: center;
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .store-product-grid--diamond {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .store-product-grid--diamond .store-product-slot {
+    width: 100%;
+    max-width: 400px;
   }
 }
 
@@ -850,7 +909,7 @@ main {
 }
 
 @media (min-width: 768px) {
-  .store-product-grid .store-product-embed-wrap--shirt {
+  .store-product-grid:not(.store-product-grid--diamond) .store-product-embed-wrap--shirt {
     grid-column: 1 / -1;
     max-width: 520px;
   }
