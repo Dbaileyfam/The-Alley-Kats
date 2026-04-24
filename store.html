@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=14">
+  <link rel="stylesheet" href="css/styles.css?v=15">
 </head>
 <body class="page-with-canvas-bg">
   <div class="canvas-bg-wrap" aria-hidden="true">
@@ -267,11 +267,47 @@
   });
   return o;
   }
+  function optionsForTransparentProductChrome(base) {
+  var o = JSON.parse(JSON.stringify(base));
+  o.product = o.product || {};
+  o.product.styles = o.product.styles || {};
+  var sp = o.product.styles.product;
+  if (sp) {
+  Object.assign(sp, {
+  'background-color': 'transparent',
+  'background': 'transparent',
+  'box-shadow': 'none'
+  });
+  if (sp.imgWrapper) {
+  Object.assign(sp.imgWrapper, {
+  'background-color': 'transparent',
+  'background': 'transparent'
+  });
+  }
+  if (sp.img) {
+  Object.assign(sp.img, {
+  'background-color': 'transparent',
+  'background': 'transparent'
+  });
+  }
+  }
+  o.modalProduct = o.modalProduct || {};
+  o.modalProduct.styles = o.modalProduct.styles || {};
+  var mp = o.modalProduct.styles.product;
+  if (mp) {
+  Object.assign(mp, {
+  'background-color': 'transparent',
+  'background': 'transparent',
+  'box-shadow': 'none'
+  });
+  }
+  return o;
+  }
   var products = [
   { id: '7972358455398', node: document.getElementById('product-component-shirt'), useCustomTitle: true },
   { id: '7940818108518', node: document.getElementById('product-component-vinyl') },
-  { id: '7976849539174', node: document.getElementById('product-component-koozie') },
-  { id: '7976858189926', node: document.getElementById('product-component-wristband') }
+  { id: '7976849539174', node: document.getElementById('product-component-koozie'), transparentProductBg: true },
+  { id: '7976858189926', node: document.getElementById('product-component-wristband'), transparentProductBg: true }
   ];
   ShopifyBuy.UI.onReady(client).then(function (ui) {
   return products.reduce(function (chain, item) {
@@ -279,7 +315,12 @@
   if (!item.node) {
   return Promise.resolve();
   }
-  var embedOptions = item.useCustomTitle ? optionsForShirtProduct(options) : options;
+  var embedOptions = options;
+  if (item.useCustomTitle) {
+  embedOptions = optionsForShirtProduct(options);
+  } else if (item.transparentProductBg) {
+  embedOptions = optionsForTransparentProductChrome(options);
+  }
   return Promise.resolve(ui.createComponent('product', {
   id: item.id,
   node: item.node,
