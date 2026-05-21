@@ -887,37 +887,46 @@ body.store-merch-page main > .section.store-section:first-of-type {
   display: block;
 }
 
-/* Shirt embed (iframe: false) — compact size selector */
+/* Shirt embed (iframe: false) — compact size row under price */
 .store-product-embed--shirt .shopify-buy__product__variant-selectors {
-  margin: 0.35rem 0 0.5rem;
-  padding: 0.5rem 0.6rem;
-  border: 1px solid rgba(159, 226, 191, 0.4);
-  border-radius: 6px;
-  background: rgba(8, 6, 18, 0.75);
+  margin: 0.15rem 0 0.35rem;
+  padding: 0;
+  border: none;
+  background: none;
+  text-align: center;
+}
+
+.store-product-embed--shirt .shopify-buy__option-select {
+  margin: 0;
+  padding: 0;
 }
 
 .store-product-embed--shirt .shopify-buy__option-select__label {
-  display: block;
-  margin-bottom: 0.25rem;
+  display: inline;
+  margin: 0 0.35rem 0 0;
   color: var(--seafoam) !important;
   font-weight: 600 !important;
-  font-size: 0.8rem !important;
+  font-size: 0.75rem !important;
+  vertical-align: middle;
 }
 
 .store-product-embed--shirt .shopify-buy__option-select__select {
-  display: block;
-  width: 100% !important;
-  max-width: 100% !important;
+  display: inline-block;
+  width: auto !important;
+  min-width: 4.5rem;
+  max-width: 7rem;
   min-height: 0 !important;
   height: auto !important;
-  padding: 4px 8px !important;
-  font-size: 0.875rem !important;
-  line-height: 1.3 !important;
+  margin: 0;
+  padding: 2px 6px !important;
+  font-size: 0.8rem !important;
+  line-height: 1.2 !important;
   color: var(--lightblue) !important;
   background-color: rgba(15, 15, 15, 0.95) !important;
-  border: 1px solid rgba(159, 226, 191, 0.5) !important;
+  border: 1px solid rgba(159, 226, 191, 0.45) !important;
   border-radius: 4px !important;
   cursor: pointer;
+  vertical-align: middle;
   -webkit-appearance: menulist;
   appearance: menulist;
 }
