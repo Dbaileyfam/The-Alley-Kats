@@ -843,8 +843,25 @@ body.store-merch-page main > .section.store-section:first-of-type {
   max-width: 520px;
   margin-left: auto;
   margin-right: auto;
-  gap: 0.25rem;
-  align-items: center;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.store-shirt-heading {
+  margin: 0;
+  text-align: center;
+  font-family: "Righteous", system-ui, sans-serif;
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
+  font-weight: 400;
+  color: var(--seafoam);
+  letter-spacing: 0.02em;
+}
+
+.store-shirt-size-hint {
+  margin: 0;
+  text-align: center;
+  color: var(--lavender);
+  font-size: 0.95rem;
 }
 
 @media (min-width: 768px) {
@@ -855,12 +872,45 @@ body.store-merch-page main > .section.store-section:first-of-type {
 }
 
 .store-product-embed--shirt {
-  min-height: 0;
+  min-height: 200px;
   width: 100%;
 }
 
 .store-product-embed--shirt iframe {
   display: block;
+}
+
+/* Shirt embed (iframe: false) — make size selector obvious */
+.store-product-embed--shirt .shopify-buy__product__variant-selectors {
+  margin: 0.75rem 0 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(159, 226, 191, 0.55);
+  border-radius: 10px;
+  background: rgba(8, 6, 18, 0.85);
+}
+
+.store-product-embed--shirt .shopify-buy__option-select__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--seafoam) !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+}
+
+.store-product-embed--shirt .shopify-buy__option-select__select {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 48px !important;
+  padding: 12px 14px !important;
+  font-size: 1.1rem !important;
+  color: var(--lightblue) !important;
+  background-color: rgba(15, 15, 15, 0.95) !important;
+  border: 1px solid var(--seafoam) !important;
+  border-radius: 8px !important;
+  cursor: pointer;
+  -webkit-appearance: menulist;
+  appearance: menulist;
 }
 
 .store-grid {

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=19">
+  <link rel="stylesheet" href="css/styles.css?v=20">
 </head>
 <body class="page-with-canvas-bg store-merch-page">
   <div class="canvas-bg-wrap" aria-hidden="true">
@@ -38,6 +38,8 @@
     <section class="section store-section">
       <div class="store-product-grid">
         <div class="store-product-embed-wrap store-product-embed-wrap--shirt">
+          <h2 class="store-shirt-heading">The Alley Kats &lsquo;Nothing Is Real&rsquo; T-Shirt</h2>
+          <p class="store-shirt-size-hint">Choose your size below, then add to cart.</p>
           <div id="product-component-shirt" class="store-product-embed store-product-embed--shirt" aria-label="Nothing Is Real T-Shirt"></div>
         </div>
         <div id="product-component-vinyl" class="store-product-embed" aria-label="Vinyl product"></div>
@@ -253,23 +255,50 @@
   };
   function optionsForShirtProduct(base) {
   var o = JSON.parse(JSON.stringify(base));
-  var shirtTitle = '<h3 class="shopify-buy__product__title">The Alley Kats &lsquo;Nothing Is Real&rsquo; T-Shirt</h3>';
   o.product = o.product || {};
-  o.product.contents = Object.assign({}, o.product.contents, {
-  title: true,
-  options: false
+  o.product.iframe = false;
+  o.product.width = '100%';
+  o.product.contents = {
+  img: true,
+  title: false,
+  variantTitle: false,
+  price: true,
+  options: true,
+  quantity: false,
+  button: true,
+  buttonWithQuantity: false,
+  description: false
+  };
+  o.product.order = ['img', 'price', 'options', 'button'];
+  o.product.styles = o.product.styles || {};
+  o.product.styles.product = Object.assign({}, o.product.styles.product, {
+  'max-width': '480px',
+  'margin-left': 'auto',
+  'margin-right': 'auto',
+  'background-color': 'transparent',
+  'background': 'transparent',
+  'box-shadow': 'none'
   });
-  o.product.templates = Object.assign({}, o.product.templates || {}, {
-  title: shirtTitle
+  o.option = o.option || {};
+  o.option.styles = o.option.styles || {};
+  o.option.styles.label = Object.assign({}, o.option.styles.label, {
+  'font-size': '1rem',
+  'font-weight': '700'
   });
-  o.product.width = '480px';
+  o.option.styles.select = Object.assign({}, o.option.styles.select, {
+  'font-size': '1.1rem',
+  'padding': '12px 14px',
+  'min-height': '48px',
+  'width': '100%',
+  'max-width': '100%',
+  'cursor': 'pointer',
+  '-webkit-appearance': 'menulist'
+  });
   o.modalProduct = o.modalProduct || {};
   o.modalProduct.contents = Object.assign({}, o.modalProduct.contents, {
-  options: false,
-  title: true
-  });
-  o.modalProduct.templates = Object.assign({}, o.modalProduct.templates || {}, {
-  title: shirtTitle
+  options: true,
+  title: true,
+  buttonWithQuantity: true
   });
   return o;
   }
@@ -310,7 +339,7 @@
   return o;
   }
   var products = [
-  { id: '7972358455398', node: document.getElementById('product-component-shirt'), useCustomTitle: true },
+  { id: '8003919347814', node: document.getElementById('product-component-shirt'), useCustomTitle: true },
   { id: '7940818108518', node: document.getElementById('product-component-vinyl') },
   { id: '7976849539174', node: document.getElementById('product-component-koozie'), transparentProductBg: true },
   { id: '7976858189926', node: document.getElementById('product-component-wristband'), transparentProductBg: true }
