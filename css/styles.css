@@ -844,7 +844,8 @@ body.store-merch-page main > .section.store-section:first-of-type {
   margin-left: auto;
   margin-right: auto;
   gap: 0.35rem;
-  align-items: stretch;
+  align-items: center;
+  text-align: center;
 }
 
 .store-shirt-heading {
@@ -879,8 +880,39 @@ body.store-merch-page main > .section.store-section:first-of-type {
 
 .store-product-embed--shirt .shopify-buy__product {
   max-width: 280px !important;
+  width: 100% !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  margin-bottom: 0 !important;
+  text-align: center !important;
+}
+
+.store-product-embed--shirt .shopify-buy__product-img-wrapper {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-top: 0 !important;
+  height: auto !important;
+  max-width: 240px;
+  width: 100%;
+  text-align: center;
+}
+
+.store-product-embed--shirt .shopify-buy__product__variant-img,
+.store-product-embed--shirt .shopify-buy__product img {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 auto !important;
+}
+
+.store-product-embed--shirt .shopify-buy__product__price,
+.store-product-embed--shirt .shopify-buy__btn-wrapper {
+  text-align: center !important;
 }
 
 .store-product-embed--shirt iframe {
@@ -894,20 +926,53 @@ body.store-merch-page main > .section.store-section:first-of-type {
   border: none;
   background: none;
   text-align: center;
+  height: auto !important;
 }
 
 .store-product-embed--shirt .shopify-buy__option-select {
   margin: 0;
   padding: 0;
+  height: auto !important;
+}
+
+/* Hide Shopify’s oversized dropdown chevron SVG */
+.store-product-embed--shirt .shopify-buy__option-select-wrapper svg {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  visibility: hidden !important;
+}
+
+.store-product-embed--shirt .shopify-buy__option-select-wrapper {
+  display: inline-block !important;
+  width: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 auto;
+  padding: 0;
+  vertical-align: middle;
 }
 
 .store-product-embed--shirt .shopify-buy__option-select__label {
-  display: inline;
-  margin: 0 0.35rem 0 0;
+  display: inline !important;
+  clip: auto !important;
+  clip-path: none !important;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 0.35rem 0 0 !important;
+  overflow: visible !important;
   color: var(--seafoam) !important;
   font-weight: 600 !important;
   font-size: 0.75rem !important;
   vertical-align: middle;
+}
+
+.store-product-embed--shirt .shopify-buy__option-select__label.visuallyhidden {
+  position: static !important;
+  clip: auto !important;
+  width: auto !important;
+  height: auto !important;
 }
 
 .store-product-embed--shirt .shopify-buy__option-select__select {
