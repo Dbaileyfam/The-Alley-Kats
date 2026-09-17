@@ -433,6 +433,13 @@ body.store-merch-page main > .section.store-section:first-of-type {
   text-transform: uppercase;
 }
 
+.event-year {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
 .event-details h3 {
   margin: 0 0 0.25rem;
   font-size: 1.1rem;
