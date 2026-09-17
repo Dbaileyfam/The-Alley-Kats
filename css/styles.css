@@ -465,6 +465,10 @@ body.store-merch-page main > .section.store-section:first-of-type {
   text-decoration: underline;
 }
 
+.event-card--placeholder .event-day {
+  color: var(--muted);
+}
+
 /* Gallery / Media */
 .media-block-title {
   margin: 0 0 1.5rem;
