@@ -469,6 +469,19 @@ body.store-merch-page main > .section.store-section:first-of-type {
   color: var(--muted);
 }
 
+.event-flyer-link {
+  display: block;
+  margin-top: 0.85rem;
+  max-width: 280px;
+}
+
+.event-flyer {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
 /* Gallery / Media */
 .media-block-title {
   margin: 0 0 1.5rem;
